@@ -1,0 +1,80 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+#root, #speech, .keyboard-row-container {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.keyboard-row-container {
+	display: flex;
+	flex: 1 1 100%;
+	flex-direction: column;
+}
+
+.keyboard-cell-container {
+	display: flex;
+	flex: 1 1 100%;
+}
+
+.keyboard-key {
+	flex: 1 1 100%;
+	outline: gray 1px solid;
+	text-align: center;
+	color: white;
+	background-color: black;
+}
+
+.animation {
+	will-change: transform;
+	position: fixed;
+	pointer-events: none;
+}
+
+.animation.touch {
+	color: black;
+	background-color: white;
+}
+
+.animation.left.start {
+	animation: animation-left-keyframes 1s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+
+.animation.right.start {
+	animation: animation-right-keyframes 1s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+
+@keyframes animation-left-keyframes {
+	0% { transform: scale(3) translateX(-33%) translateY(-10%) }
+	10% { opacity: 1 }
+	20% { transform: scale(3) translateX(-33%) translateY(-10%) }
+	60% { background-color: transparent }
+	100% {
+		opacity: 0;
+		transform: scale(0.5);
+		color: wheat;
+		background-color: transparent;
+	}
+}
+
+@keyframes animation-right-keyframes {
+	0% { transform: scale(3) translateX(33%) translateY(-10%) }
+	10% { opacity: 1 }
+	20% { transform: scale(3) translateX(33%) translateY(-10%) }
+	60% { background-color: transparent }
+	100% {
+		opacity: 0;
+		transform: scale(0.5);
+		color: wheat;
+		background-color: transparent;
+	}
+}
