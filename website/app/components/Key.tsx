@@ -47,9 +47,12 @@ interface KeyProps {
 }
 
 export default class Key extends React.PureComponent<KeyProps, {}> {
-	domKeyElem: HTMLDivElement
+	domKeyElem: HTMLDivElement | null
 
 	_onPress = () => {
+		if (this.domKeyElem == null) {
+			return
+		}
 		if (!enterFullscreen()) {
 			keyPressEvent$.next({ text: this.props.text })
 			animateElem(this.domKeyElem)

@@ -30,7 +30,7 @@ const buttonStyle: React.CSSProperties = {
 
 export default class Speech extends React.PureComponent<{}, SpeechState> {
 	textInputSubscription: Subscription
-	domTextElem: HTMLTextAreaElement
+	domTextElem: HTMLTextAreaElement | null
 
 	constructor(props: any) {
 		super(props)
@@ -56,7 +56,9 @@ export default class Speech extends React.PureComponent<{}, SpeechState> {
 
 	_onSendButtonClick = () => {
 		textTypeEvent$.next(this.state.text)
-		this.domTextElem.focus()
+		if (this.domTextElem != null) {
+			this.domTextElem.focus()
+		}
 	}
 
 	_onBackButtonClick = () => {

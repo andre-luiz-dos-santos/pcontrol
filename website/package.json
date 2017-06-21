@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "app/index.tsx",
 	"scripts": {
-		"start": "webpack --config webpack.config.js --watch"
+		"start": "webpack --config webpack.config.js --watch",
+		"build": "webpack --config webpack.config.js -p"
 	},
 	"author": "",
 	"license": "ISC",
